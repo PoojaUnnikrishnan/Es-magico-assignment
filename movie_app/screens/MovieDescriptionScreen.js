@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 
 const MovieDescriptionScreen = (item) => {
-  // console.log(item);
-  // console.log(item.route.params.item.Title);
   let movieTitle = item.route.params.item.Title;
   const [movies, setMovies] = useState([]);
 
@@ -12,8 +10,6 @@ const MovieDescriptionScreen = (item) => {
       (res) =>
         res.json().then((res) => {
           setMovies(res);
-          console.log(res);
-          // let movies = res.Search;
         })
     );
   }, []);
@@ -109,6 +105,5 @@ const styles = StyleSheet.create({
   },
   innerContent: {
     color: "gray",
-    // alignItems: "right",
   },
 });

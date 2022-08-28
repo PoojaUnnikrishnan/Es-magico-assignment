@@ -46,7 +46,7 @@ const SearchScreen = ({ navigation }) => {
         </View>
         {movies.Response === "False" && (
           <View>
-            <Text>No results</Text>
+            <Text style={styles.noResults}>No results</Text>
           </View>
         )}
       </View>
@@ -82,7 +82,12 @@ const styles = StyleSheet.create({
   button: {
     color: "white",
     borderRadius: "5px",
-
     padding: "20px",
+  },
+  noResults: {
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "red",
+    fontFamily: "jazz let",
   },
 });
