@@ -6,20 +6,18 @@ import {
   StyleSheet,
   Button,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 const MovieListingScreen = (movies) => {
-  //   console.log(movies);
-  let totalResult = movies.route.params.totalResults;
-  console.log(movies.route.params.totalResults);
+  let [pageNo, setPageNo] = useState(1);
   let movie = movies.route.params.movies;
   let navigation = useNavigation();
-
-  // const handlePress = () => {
-  //   navigation.push("Movie Description");
-  // };
-  const loadMore = () => {};
+  let totalResult = movies.route.params.totalResults;
+  let totalPages = Math.round(totalResult / 10 + 1);
+  const loadMore = () => {
+    setPageNo(pageNo + 1);
+  };
   return (
     <View style={styles.appBody}>
       {movie?.map((item, index) => (
@@ -39,7 +37,9 @@ const MovieListingScreen = (movies) => {
           />
         </TouchableOpacity>
       ))}
-      <Button onPress={loadMore} title="Load More" />
+      {totalPages !== pageNo ? (
+        <Button onPress={loadMore} title="Load More" />
+      ) : null}
     </View>
   );
 };

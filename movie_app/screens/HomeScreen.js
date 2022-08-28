@@ -19,17 +19,13 @@ const SearchScreen = ({ navigation }) => {
           setMovies(res);
           let movies = res.Search;
           let totalResults = res.totalResults;
-          //   console.log(totalResults);
           if (res.Response === "True" && movies) {
             navigation.navigate("Movie Listing", { movies, totalResults });
           }
         })
     );
   };
-  //   useEffect(() => {
-  //   }, []);
-  // console.log(movies);
-  // console.log(movies.Title);
+
   const handleChange = (e) => {
     e.target.value;
     setInputValue(e.target.value);
@@ -42,7 +38,6 @@ const SearchScreen = ({ navigation }) => {
           <TextInput
             placeholder="Search For Movies.."
             style={styles.input}
-            // value={inputValue}
             onChange={handleChange}
           />
           <TouchableOpacity>
@@ -68,10 +63,8 @@ const styles = StyleSheet.create({
     flex: "15",
     justifyContent: "center",
     alignItems: "center",
-    // border: "15px solid black",
   },
   innerContainer: {
-    // border: "1px solid blue",
     marginTop: "-100px",
     padding: "20px",
     display: "flex",
@@ -80,7 +73,6 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    // boder: "1px solid gray",
     borderWidth: "1px",
     borderRadius: "5px",
     fontSize: "15px",
