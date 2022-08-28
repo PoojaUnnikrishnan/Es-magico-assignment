@@ -9,9 +9,7 @@ import Header from "./components/Header";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    // <View >
     <NavigationContainer>
-      {/* <Header /> */}
       <Stack.Navigator>
         <Stack.Screen
           name="HomeScreen"
@@ -25,10 +23,5 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-    // </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});
