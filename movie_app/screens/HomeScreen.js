@@ -7,9 +7,8 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
-// import axios from axios
 const SearchScreen = ({ navigation }) => {
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -17,7 +16,7 @@ const SearchScreen = ({ navigation }) => {
     fetch(`http://www.omdbapi.com/?s='${inputValue}'&apikey=c04b6279`).then(
       (res) =>
         res.json().then((res) => {
-          setMovies(res.Search);
+          setMovies(res);
           let movies = res.Search;
           let totalResults = res.totalResults;
           //   console.log(totalResults);
@@ -29,8 +28,8 @@ const SearchScreen = ({ navigation }) => {
   };
   //   useEffect(() => {
   //   }, []);
-  console.log(movies);
-  console.log(movies.Title);
+  // console.log(movies);
+  // console.log(movies.Title);
   const handleChange = (e) => {
     e.target.value;
     setInputValue(e.target.value);
@@ -77,21 +76,21 @@ const styles = StyleSheet.create({
     padding: "20px",
     display: "flex",
     flexDirection: "row",
+    gap: "5px",
   },
-  text: {
-    color: "white",
-    fontFamily: "Brush Script MT",
-    fontWeight: "bolder",
-    fontSize: "30px",
-  },
+
   input: {
     // boder: "1px solid gray",
-    borderWidth: "2px",
+    borderWidth: "1px",
     borderRadius: "5px",
-    fontSize: "20px",
+    fontSize: "15px",
     color: "gray",
+    padding: "5px",
   },
   button: {
     color: "white",
+    borderRadius: "5px",
+
+    padding: "20px",
   },
 });

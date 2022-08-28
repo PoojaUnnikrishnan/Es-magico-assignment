@@ -19,7 +19,7 @@ const MovieDescriptionScreen = (item) => {
   }, []);
 
   return (
-    <View>
+    <View style={styles.appBody}>
       <View style={styles.container}>
         <Text style={styles.header}>{movies.Title}</Text>
         <Image
@@ -37,7 +37,7 @@ const MovieDescriptionScreen = (item) => {
           Rating: <span style={styles.innerContent}>{movies.imdbRating}⭐</span>
         </Text>
         <Text style={styles.content}>
-          Votes: <span style={styles.innerContent}>{movies.imdbVotes}⭐</span>
+          Votes: <span style={styles.innerContent}>{movies.imdbVotes}</span>
         </Text>
         <Text style={styles.content}>
           Released on:{" "}
@@ -57,16 +57,16 @@ const MovieDescriptionScreen = (item) => {
           Writer: <span style={styles.innerContent}>{movies.Writer}</span>
         </Text>
         <Text style={styles.content}>
-          Country: <span style={styles.innerContent}>{movies.Country}</span>
+          Plot: <span style={styles.innerContent}>{movies.Plot}</span>
         </Text>
         <Text style={styles.content}>
           Cast: <span style={styles.innerContent}>{movies.Actors}</span>
         </Text>
         <Text style={styles.content}>
-          Awards: <span style={styles.innerContent}>{movies.Awards}</span>
+          Country: <span style={styles.innerContent}>{movies.Country}</span>
         </Text>
         <Text style={styles.content}>
-          Plot: <span style={styles.innerContent}>{movies.Plot}</span>
+          Awards: <span style={styles.innerContent}>{movies.Awards}</span>
         </Text>
         <Text style={styles.content}>
           Languages: <span style={styles.innerContent}>{movies.Language}</span>
@@ -79,6 +79,9 @@ const MovieDescriptionScreen = (item) => {
 export default MovieDescriptionScreen;
 Screen;
 const styles = StyleSheet.create({
+  appBody: {
+    backgroundColor: "#f2f2f2",
+  },
   container: {
     display: "flex",
     alignItems: "center",

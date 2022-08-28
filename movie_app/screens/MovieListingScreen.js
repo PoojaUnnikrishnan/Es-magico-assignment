@@ -21,7 +21,7 @@ const MovieListingScreen = (movies) => {
   // };
   const loadMore = () => {};
   return (
-    <View>
+    <View style={styles.appBody}>
       {movie?.map((item, index) => (
         <TouchableOpacity
           key={index}
@@ -39,13 +39,16 @@ const MovieListingScreen = (movies) => {
           />
         </TouchableOpacity>
       ))}
-      <Button onPress={loadMore} />
+      <Button onPress={loadMore} title="Load More" />
     </View>
   );
 };
 
 export default MovieListingScreen;
 const styles = StyleSheet.create({
+  appBody: {
+    backgroundColor: "#f2f2f2",
+  },
   container: {
     display: "flex",
     alignItems: "center",
